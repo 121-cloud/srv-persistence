@@ -28,8 +28,10 @@ public class OTOMongoClientImpl extends MongoClientImpl {
 	/**
 	 * 支持批量保存
 	 */
-	public io.vertx.ext.mongo.MongoClient save(String collection, JsonArray documents,
+	public void save(String collection, JsonArray documents,
 			Handler<AsyncResult<JsonArray>> resultHandler) {
+		Future<JsonArray> future = Future.future();
+		future.setHandler(resultHandler);
 		List<Future> futures = new ArrayList<>();
 		for (Object document : documents) {
 			Future<JsonObject> repRelationFuture = Future.future();
@@ -54,8 +56,8 @@ public class OTOMongoClientImpl extends MongoClientImpl {
 					}
 				}
 			}
+			future.complete(documents);
 		});
-		return this;
 	}
 
 }
