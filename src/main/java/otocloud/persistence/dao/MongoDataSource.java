@@ -18,7 +18,7 @@ public class MongoDataSource {
 	// mongo客户端
 	protected Vertx vertx;
 	protected MongoClient mongoClient;
-	protected MongoClient mongoClient_oto;// oto封装的client
+	protected OTOMongoClientImpl mongoClient_oto;// oto封装的client
 	protected String mongoSharePool;
 	protected JsonObject mongoCfg;
 
@@ -44,7 +44,7 @@ public class MongoDataSource {
 		return mongoClient;
 	}
 
-	public MongoClient getOCRMongoClient() {
+	public OTOMongoClientImpl getMongoClient_oto() {
 		if (mongoClient_oto != null)
 			return mongoClient_oto;
 		createMongoClient_oto();
