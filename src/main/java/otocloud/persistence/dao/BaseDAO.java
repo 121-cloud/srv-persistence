@@ -10,6 +10,7 @@ import io.vertx.ext.jdbc.JDBCClient;
 import io.vertx.ext.sql.ResultSet;
 import io.vertx.ext.sql.SQLConnection;
 import io.vertx.ext.sql.UpdateResult;
+
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.LinkedList;
@@ -39,6 +40,10 @@ public class BaseDAO {
 
     public void setDataSource(JdbcDataSource dataSource) {
         this.dataSource = dataSource;
+    }    
+    
+    protected final void deleteWithParams(String sql, JsonArray params, Future<UpdateResult> done) {
+        updateWithParams(sql, params, done);
     }
 
     /**
@@ -370,7 +375,6 @@ public class BaseDAO {
      * @param done
      */
     protected final void updateWithParams(String sql, JsonArray params, Future<UpdateResult> done) {
-        //TODO 保持一个连接，以提高性能.
         createDBConnect(conn -> conn.setAutoCommit(true, res -> {
             if (res.failed()) {
                 done.fail(res.cause());

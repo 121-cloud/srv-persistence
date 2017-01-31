@@ -22,7 +22,7 @@ public class MongoDataSource {
 	protected String mongoSharePool;
 	protected JsonObject mongoCfg;
 
-	protected void init(Vertx vertx, JsonObject datasourceCfg) {
+	public void init(Vertx vertx, JsonObject datasourceCfg) {
 		this.vertx = vertx;
 		this.mongoSharePool = datasourceCfg.getString(OtoConfiguration.SHAREDPOOL);
 		this.mongoCfg = datasourceCfg.getJsonObject(OtoConfiguration.CONFIG);
