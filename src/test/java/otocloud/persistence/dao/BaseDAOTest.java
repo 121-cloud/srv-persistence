@@ -1,4 +1,4 @@
-package otocloud.persistence.dao;
+/*package otocloud.persistence.dao;
 
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
@@ -13,9 +13,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/**
+*//**
  * Created by zhangye on 2015-10-26.
- */
+ *//*
 @RunWith(VertxUnitRunner.class)
 public class BaseDAOTest extends DAOTestBase {
 
@@ -94,3 +94,4 @@ public class BaseDAOTest extends DAOTestBase {
         });
     }
 }
+*/

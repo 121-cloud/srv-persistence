@@ -1,4 +1,4 @@
-package otocloud.persistence.dao;
+/*package otocloud.persistence.dao;
 
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
@@ -10,13 +10,13 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/** 
+*//** 
 * OtoCloudOperatorDAO Tester. 
 * 
 * @author zhangye 
 * @since <pre>十月 28, 2015</pre> 
 * @version 1.0 
-*/
+*//*
 @RunWith(VertxUnitRunner.class)
 public class OperatorDAOTest extends DAOTestBase {
 
@@ -31,11 +31,11 @@ public class OperatorDAOTest extends DAOTestBase {
         async.complete();
     } 
 
-   /** 
+   *//** 
     * 
     * Method: insertBy(String tableName, JsonObject insertValues, int operatorId, Future<UpdateResult> doneFuture) 
     * 
-    */ 
+    *//* 
     @Test
     public void testInsertBy(TestContext context) throws Exception {
         final Async async = context.async();
@@ -53,11 +53,11 @@ public class OperatorDAOTest extends DAOTestBase {
         });
     }
 
-    /**
+    *//**
     * 
     * Method: updateBy(String tableName, JsonObject setValues, JsonObject where, int operatorId, Future<UpdateResult> doneFuture) 
     * 
-    */ 
+    *//* 
     @Test
     public void testUpdateBy(TestContext context) throws Exception {
         final Async async = context.async();
@@ -78,11 +78,11 @@ public class OperatorDAOTest extends DAOTestBase {
         });
     }
 
-    /**
+    *//**
     * 
     * Method: deleteBy(String tableName, JsonObject where, int operatorId, Future<UpdateResult> doneFuture) 
     * 
-    */ 
+    *//* 
     @Test
     public void testDeleteBy(TestContext context) throws Exception {
         final Async async = context.async();
@@ -103,3 +103,4 @@ public class OperatorDAOTest extends DAOTestBase {
 
 
 }
+*/

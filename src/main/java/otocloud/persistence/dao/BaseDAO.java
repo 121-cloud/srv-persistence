@@ -44,7 +44,8 @@ public class BaseDAO {
     
     protected final void deleteWithParams(String sql, JsonArray params, Future<UpdateResult> done) {
         updateWithParams(sql, params, done);
-    }
+    }    
+
 
     /**
      * TODO 添加测试

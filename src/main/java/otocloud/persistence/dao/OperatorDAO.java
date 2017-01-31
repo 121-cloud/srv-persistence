@@ -25,7 +25,7 @@ public class OperatorDAO extends BaseDAO {
         super(dataSource);
     }
 
-    protected final void insertBy(String tableName, JsonObject insertValues, int operatorId,
+    protected final void insertBy(String tableName, JsonObject insertValues, Long operatorId,
                                   Future<UpdateResult> doneFuture) {
 
         JsonObject insertValuesWithID = insertValues;
@@ -35,7 +35,7 @@ public class OperatorDAO extends BaseDAO {
     }
 
     protected final void insertBy(TransactionConnection transConn,
-                                  String tableName, JsonObject insertValues, int operatorId,
+                                  String tableName, JsonObject insertValues, Long operatorId,
                                   Future<UpdateResult> doneFuture) {
         JsonObject insertValuesWithID = insertValues;
         insertValuesWithID.put("entry_id", operatorId);
@@ -44,7 +44,7 @@ public class OperatorDAO extends BaseDAO {
     }
 
     protected final void updateBy(String tableName, JsonObject setValues, JsonObject where,
-                                  int operatorId,
+                                  Long operatorId,
                                   Future<UpdateResult> doneFuture) {
         JsonObject setValuesWithId = setValues;
         setValuesWithId.put("update_id", operatorId);
@@ -64,7 +64,7 @@ public class OperatorDAO extends BaseDAO {
      */
     protected final void updateBy(TransactionConnection transConn,
                                   String tableName, JsonObject setValues,
-                                  JsonObject where, int operatorId,
+                                  JsonObject where, Long operatorId,
                                   Future<UpdateResult> doneFuture) {
         JsonObject setValuesWithId = setValues;
         setValuesWithId.put("update_id", operatorId);
@@ -72,7 +72,7 @@ public class OperatorDAO extends BaseDAO {
         updateBy(transConn, tableName, setValuesWithId, where, doneFuture);
     }
 
-    protected final void deleteBy(String tableName, JsonObject where, int operatorId,
+    protected final void deleteBy(String tableName, JsonObject where, Long operatorId,
                                   Future<UpdateResult> doneFuture) {
         String deleteSQL = makeDeleteSQL(tableName, where, operatorId);
         JsonArray params = makeWhereValues(where);
@@ -80,7 +80,7 @@ public class OperatorDAO extends BaseDAO {
     }
 
     protected final void deleteBy(TransactionConnection transConn,
-                                  String tableName, JsonObject where, int operatorId,
+                                  String tableName, JsonObject where, Long operatorId,
                                   Future<UpdateResult> doneFuture) {
         String deleteSQL = makeDeleteSQL(tableName, where, operatorId);
         JsonArray params = makeWhereValues(where);
@@ -88,7 +88,7 @@ public class OperatorDAO extends BaseDAO {
         updateWithParams(transConn, deleteSQL, params, doneFuture);
     }
 
-    private String makeDeleteSQL(String tableName, JsonObject where, int operatorId) {
+    private String makeDeleteSQL(String tableName, JsonObject where, Long operatorId) {
         return "UPDATE " + tableName
                 + " SET " + "delete_id=" + operatorId + ", delete_datetime=NOW() "
                 + " WHERE " + makeWhereConditionClause(where);
