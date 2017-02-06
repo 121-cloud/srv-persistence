@@ -391,12 +391,17 @@ public class BaseDAO {
                         closeDBConnect(conn);
                     }
                 } else {
+                	closeDBConnect(conn);
                     done.fail(ret.cause());
                 }
             });
 
-        }), e -> logger.error("连接数据库错误.", e));
-    }
+        }), e ->{
+        	done.fail(e);
+        	logger.error("连接数据库错误.", e);
+        });
+    }    
+
 
     protected final void createDBConnect(Handler<SQLConnection> connectionHandler) {
         createDBConnect(connectionHandler, e -> {
